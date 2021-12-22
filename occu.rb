@@ -1,3 +1,5 @@
+# count all occurence number
+
 #! user/bin/ruby
 
 class Opeation
