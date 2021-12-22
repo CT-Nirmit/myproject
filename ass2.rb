@@ -1,3 +1,4 @@
+#most occurence value
 #! user/bin/ruby
 
 class Operations
