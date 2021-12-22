@@ -1,3 +1,7 @@
+# Meadian running Striming
+
+
+
 #! user/bin/ruby
 
 class Opeartion
