@@ -1,16 +1,10 @@
+# Straircase Code
+
 #! user/bin/ruby
 
 class Solution
 
-   def all_combination(n)
-      arr =[ ]
-      for i in 1 .. n
-         arr.append(i)  
-      end
-      for i in 1 .. n
-         puts "#{arr.combination(i).to_a}"
-      end 
-   end
+  
 
    def Way(n)
        if (n==0)
@@ -22,10 +16,41 @@ class Solution
        end 
    end
 end
+
+class MyArray 
+	
+    def combinations(n, result, index, sum) 
+     if (index > n || sum > n) 
+		return
+     end
+     if (sum == n) 
+		i = 0
+	while (i < index) 
+	       print(" ", result[i] ," ")
+		i += 1
+	end
+		print("\n")
+	else 
+		i = n
+	while (i >= 1) 
+				
+	        result[index] = i
+		self.combinations(n, result, index + 1, sum + i)
+		i -= 1
+	end
+      end
+    end
+end
+obj = MyArray.new()
 instance=Solution.new
 n=gets.chomp.to_i
+
+result = Array.new(n, 0)
+obj.combinations(n, result, 0, 0)
+print "Ways "
 puts (instance.Way(n))
-instance.all_combination(n)
+
+
 
 
 
