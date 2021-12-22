@@ -1,3 +1,6 @@
+# asssiment 1
+# class and method code 
+
 
 class Op
  
