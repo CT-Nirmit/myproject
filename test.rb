@@ -6,10 +6,10 @@ url = "https://www.ruby-lang.org/"
 uri = URI.parse(url)
 response = Net::HTTP.get_response(uri)
 
+
 begin
   file = File.open("/home/ubuntu/Downloads/newfile.txt", "w")
   file.write(response) 
-  puts "Done"
 rescue IOError => e
   puts e
 ensure
