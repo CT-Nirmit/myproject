@@ -4,7 +4,7 @@ require 'net/http'
 require "uri"
 class EhcAssignment
   def crawl
-    uri = URI.parse('https://services.ecourts.gov.in/ecourtindiaHC/cases/highcourt_causelist_qry.php')
+    uri = URI('https://services.ecourts.gov.in/ecourtindiaHC/cases/highcourt_causelist_qry.php')
     response=Net::HTTP.post_form(uri,{"action_code"=>"pulishedCauselist","causelist_dt"=>"29-12-2021","state_code"=>"1","dist_code"=>"1","court_code"=>"2"})
     file = File.open("./result.html", "w")
     file.write(response.body)
