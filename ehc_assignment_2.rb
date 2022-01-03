@@ -1,7 +1,5 @@
 #! user/bin/ruby
 #https://yukimotopress.github.io/http
-
-
 require 'net/http'
 require "uri"
 class EhcAssignment
@@ -9,11 +7,13 @@ class EhcAssignment
         cases=[]
         uri = URI.parse('https://services.ecourts.gov.in/ecourtindiaHC/cases/highcourt_causelist_qry.php')
         response=Net::HTTP.post_form(uri,{"action_code"=>"pulishedCauselist","causelist_dt"=>"29-12-2021","state_code"=>"1","dist_code"=>"1","court_code"=>"2"})
-        file = File.open("/home/ubuntu/Documents/tester/result.html", "w")
+        file = File.open("./result.html", "w")
         file.write(response.body)
-      #puts response.body
+        return  response.body
+   end
+   def parse(body)
         row=[]
-        row_split=response.body.split("^#")
+        row_split=body.split("^#")
         for i in row_split
            row=row.append(i)
         end
@@ -30,5 +30,5 @@ class EhcAssignment
   end
 end  
 instance=EhcAssignment.new
-instance.crawl
-
+body=instance.crawl
+instance.parse(body)
