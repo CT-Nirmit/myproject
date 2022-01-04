@@ -9,6 +9,8 @@ class EhcAssignment
     file = File.open("./result.html", "w")
     file.write(response.body)
     file.close()
+    path= File.expand_path('../', __FILE__)
+    puts "current path of save file :  #{path}" 
     return  response.body
   end
   def parse(data)
@@ -25,7 +27,8 @@ class EhcAssignment
                'casuse_list'=>col_split[2].gsub(/\s+/,""), 
                'Date'=>col_split[3],
                'link'=>"https://services.ecourts.gov.in/ecourtindiaHC/cases/display_causelist.php?filename="+col_split[4]}
-    end     
+    end 
+      puts "pasrse Data  :"    
       puts col
   end
 end  
