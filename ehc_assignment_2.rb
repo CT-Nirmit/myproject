@@ -20,15 +20,13 @@ class EhcAssignment
       when Net::HTTPClientError,
         Net::HTTPInternalServerError,URI::Error
         puts "check the url"
-      when Net::HTTPNotFound
-        puts "enter currect parameter" 
       end
     end 
   end  
   def parse(data)
     begin 
       if  data == nil
-         puts "data is not avialable check the url"
+         puts "data is not avialable in parse file"
       else 
       data=data.gsub(/\s+/,"")        
       row=[]
