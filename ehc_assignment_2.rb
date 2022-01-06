@@ -1,3 +1,4 @@
+
 #! user/bin/ruby
 require 'net/http'
 require "uri"
@@ -47,10 +48,10 @@ class EhcAssignment
                'Date '=>col_split[3],
                'link '=>"https://services.ecourts.gov.in/ecourtindiaHC/cases/ display_causelist.php?filename="+col_split[4]}
         @@log.info(col[i])
-      
-     end
+      end
     end
   end
 instance=EhcAssignment.new
 data=instance.crawl
 instance.parse(data)
+
